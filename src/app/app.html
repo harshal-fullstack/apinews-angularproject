@@ -1,0 +1,5 @@
+<div class="container mt-4">
+  <app-search (search)="loadHeadlines($event)"></app-search>
+  <app-list [articles]="articles"></app-list>
+</div>
+<router-outlet />

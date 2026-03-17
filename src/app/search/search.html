@@ -1,0 +1,6 @@
+<form (submit)="onSearch(); $event.preventDefault()">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" [(ngModel)]="query" placeholder="Search news..." name="search">
+    <button class="btn btn-outline-secondary" type="submit">Search</button>
+  </div>
+</form>
