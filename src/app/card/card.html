@@ -1,4 +1,4 @@
-<div class="card mb-3">
+<div class="card mb-3" *ngIf="article">
   <img class="card-img-top" alt="News image" *ngIf="article.urlToImage" [src]="article.urlToImage" >
   <div class="card-body">
     <h5 class="card-title">{{ article.title }}</h5>
