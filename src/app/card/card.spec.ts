@@ -14,6 +14,12 @@ describe('Card', () => {
 
     fixture = TestBed.createComponent(Card);
     component = fixture.componentInstance;
+    component.article = {
+      urlToImage: 'https://example.com/image.jpg',
+      title: 'Sample News Title',
+      description: 'Sample News Description',
+      url: 'https://example.com/news'
+    };
     fixture.detectChanges();
   });
 
