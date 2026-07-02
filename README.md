@@ -51,10 +51,5 @@ This compiles the application and stores output artifacts in the `dist/` directo
 To generate a new component:
 ```bash
 npx ng generate component component-name
-```
 
----
-
-## 📚 Learn More
-For more details on the Angular CLI, visit the [Angular CLI Reference](https://angular.dev/tools/cli).
 
