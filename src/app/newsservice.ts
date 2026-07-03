@@ -12,10 +12,15 @@ export class Newsservice {
 
   constructor(private http:HttpClient){}
 
-  Headlines(query: string = '', country: string = 'us'): Observable<any> {
+  Headlines(query: string = '', country: string = 'us', category: string = ''): Observable<any> {
     let params = new HttpParams()
-      .set('apiKey', this.apikey)
-      .set('country', country);
+      .set('apiKey', this.apikey);
+    if (country) {
+      params = params.set('country', country);
+    }
+    if (category) {
+      params = params.set('category', category);
+    }
     if (query) {
       params = params.set('q', query);
     }
