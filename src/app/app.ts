@@ -1,28 +1,13 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Search } from "./search/search";
-import { List } from "./list/list";
-import { Newsservice } from './newsservice';
+import { Navbar } from './navbar/navbar';
+import { Footer } from './footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Search, List],
+  standalone: true,
+  imports: [RouterOutlet, Navbar, Footer],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App  implements OnInit {
-  articles: any[] = [];
-
-  constructor(private newsService: Newsservice) { }
-
-  ngOnInit() {
-    this.loadHeadlines();
-  }
-
-  loadHeadlines(query: string = '') {
-    this.newsService.Headlines(query).subscribe(data => {
-      this.articles = data.articles;
-    });
-  }
-  
-}
+export class App {}

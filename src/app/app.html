@@ -1,5 +1,5 @@
-<div class="container mt-4">
-  <app-search (search)="loadHeadlines($event)"></app-search>
-  <app-list [articles]="articles"></app-list>
-</div>
-<router-outlet />
+<app-navbar></app-navbar>
+<main class="flex-shrink-0">
+  <router-outlet></router-outlet>
+</main>
+<app-footer></app-footer>
