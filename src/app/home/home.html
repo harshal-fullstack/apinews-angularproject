@@ -1,0 +1,85 @@
+<div class="home-wrapper">
+  <!-- Hero Section -->
+  <header class="hero-section position-relative d-flex align-items-center justify-content-center text-center overflow-hidden">
+    <div class="hero-glow"></div>
+    <div class="container position-relative z-index-2 py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="badge-premium mb-3 d-inline-block">
+            <span class="badge-text"><i class="bi bi-stars me-2"></i>THE NEWS HUB</span>
+          </div>
+          <h1 class="display-3 fw-extrabold mb-4 hero-title">
+            Stay Informed. <br>
+            <span class="gradient-text">Understand the World.</span>
+          </h1>
+          <p class="lead text-muted-hero mb-5 px-lg-5">
+            Discover real-time global news, search for topics, and filter across business, technology, entertainment, and science fields.
+          </p>
+
+          <!-- Glassmorphic Search Bar -->
+          <div class="search-glass-wrapper p-2 mx-auto mb-4">
+            <form (submit)="onSearchSubmit(); $event.preventDefault()" class="d-flex align-items-center">
+              <div class="input-group">
+                <span class="input-group-text bg-transparent border-0 text-muted"><i class="bi bi-search fs-5"></i></span>
+                <input type="text" class="form-control bg-transparent border-0 text-white shadow-none ps-1" 
+                       [(ngModel)]="searchQuery" name="searchQuery" placeholder="Search for topics, companies, or events...">
+                <button type="submit" class="btn btn-primary-gradient px-4 py-2 text-nowrap">Search News</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Categories Grid Section -->
+  <section class="py-5 position-relative">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title fw-bold">Browse by <span class="gradient-text">Category</span></h2>
+        <p class="text-muted">Direct filter access to the news departments that matter to you.</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-6 col-md-4 col-lg-2" *ngFor="let cat of categories">
+          <div class="category-card text-center p-4 glass-card" (click)="selectCategory(cat.value)">
+            <div class="category-icon-wrapper mb-3" [ngClass]="cat.color">
+              <i class="bi" [ngClass]="cat.icon"></i>
+            </div>
+            <h6 class="category-name mb-0 fw-semibold">{{ cat.name }}</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured News Section -->
+  <section class="py-5 bg-dots">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-5">
+        <div>
+          <h2 class="section-title fw-bold mb-1">Featured <span class="gradient-text">Headlines</span></h2>
+          <p class="text-muted mb-0">The latest top-trending headlines from across the globe.</p>
+        </div>
+        <button class="btn btn-outline-indigo d-none d-sm-inline-flex align-items-center" (click)="selectCategory('')">
+          Explore All <i class="bi bi-arrow-right ms-2"></i>
+        </button>
+      </div>
+
+      <!-- Loading State -->
+      <div class="text-center py-5" *ngIf="isLoading">
+        <div class="spinner-border text-indigo" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="text-muted mt-3">Fetching top-headlines...</p>
+      </div>
+
+      <!-- Grid of Featured Cards -->
+      <div class="row g-4" *ngIf="!isLoading">
+        <div class="col-md-4" *ngFor="let article of featuredArticles">
+          <app-card [article]="article"></app-card>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
