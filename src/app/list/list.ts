@@ -1,4 +1,4 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Card } from "../card/card";
 import { CommonModule } from '@angular/common';
 
