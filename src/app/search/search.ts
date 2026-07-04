@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './search.css'
 })
 export class Search {
-  query:any;
+  query: string = '';
   @Output() search = new EventEmitter<string>();
 
   onSearch() {

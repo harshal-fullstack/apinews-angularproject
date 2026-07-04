@@ -1,0 +1,25 @@
+.search-input-group {
+  background: rgba(30, 41, 59, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.search-input-group .input-group-text {
+  border: none;
+  background: transparent;
+  color: #64748b;
+  padding-left: 1.25rem;
+}
+
+.search-input-group .form-control {
+  border: none;
+  background: transparent;
+  box-shadow: none !important;
+}
+
+.search-input-group .btn-primary-gradient {
+  border-radius: 0 10px 10px 0;
+  padding: 0.6rem 1.5rem;
+  box-shadow: none;
+}
