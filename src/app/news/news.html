@@ -1,0 +1,59 @@
+<div class="news-feed-wrapper py-5">
+  <div class="container">
+    
+    <!-- Header info -->
+    <div class="row align-items-center mb-5">
+      <div class="col-md-6">
+        <h1 class="fw-bold section-title mb-2">Explore the <span class="gradient-text">Feed</span></h1>
+        <p class="text-muted mb-md-0">Browse latest headlines or filter by department search queries.</p>
+      </div>
+      <div class="col-md-6">
+        <!-- Integrated Search -->
+        <app-search (search)="onSearch($event)"></app-search>
+      </div>
+    </div>
+
+    <!-- Category Filter Chips -->
+    <div class="category-chips-scroll mb-5">
+      <div class="d-flex gap-2 pb-2">
+        <button 
+          *ngFor="let cat of categories" 
+          class="btn-chip"
+          [class.active]="currentCategory === cat.value"
+          (click)="setCategory(cat.value)">
+          {{ cat.name }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Info Banner (e.g. if fallback loaded) -->
+    <div class="alert alert-info glass-panel border-indigo-30 mb-5 d-flex align-items-center" role="alert" *ngIf="hasError">
+      <i class="bi bi-info-circle-fill me-3 fs-4 text-indigo"></i>
+      <div>
+        <strong>Demonstration Mode:</strong> Showing curated articles. ({{ errorMessage }})
+      </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="text-center py-5" *ngIf="isLoading">
+      <div class="spinner-border text-indigo" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p class="text-muted mt-3">Loading news feed...</p>
+    </div>
+
+    <!-- Empty State -->
+    <div class="text-center py-5 glass-panel rounded-4 border-dashed mb-5" *ngIf="!isLoading && articles.length === 0">
+      <i class="bi bi-newspaper fs-1 text-muted mb-3 d-block"></i>
+      <h4 class="fw-bold">No News Found</h4>
+      <p class="text-muted">We couldn't find any articles matching your search. Try adjusting your query or category.</p>
+      <button class="btn btn-primary-gradient mt-3" (click)="onSearch(''); setCategory('')">Reset Filters</button>
+    </div>
+
+    <!-- News List -->
+    <div *ngIf="!isLoading && articles.length > 0" class="mb-5">
+      <app-list [articles]="articles"></app-list>
+    </div>
+
+  </div>
+</div>
