@@ -9,7 +9,7 @@
       </div>
       <div class="col-md-6">
         <!-- Integrated Search -->
-        <app-search (search)="onSearch($event)"></app-search>
+        <app-search [query]="searchQuery" (search)="onSearch($event)"></app-search>
       </div>
     </div>
 
