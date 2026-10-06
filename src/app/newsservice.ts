@@ -12,6 +12,11 @@ export class Newsservice {
 
   constructor(private http:HttpClient){}
 
+  private getEndpoint(endpoint: string): string {
+    const baseUrl = this.url?.endsWith('/') ? this.url : `${this.url}/`;
+    return `${baseUrl}${endpoint}`;
+  }
+
   Headlines(query: string = '', country: string = 'us', category: string = ''): Observable<any> {
     let params = new HttpParams()
       .set('apiKey', this.apikey);
@@ -21,10 +26,10 @@ export class Newsservice {
     if (category) {
       params = params.set('category', category);
     }
-    if (query) {
-      params = params.set('q', query);
+    if (query && query.trim()) {
+      params = params.set('q', query.trim());
     }
-    return this.http.get(this.url+'top-headlines', { params });
+    return this.http.get(this.getEndpoint('top-headlines'), { params });
   }
   
 }
