@@ -1,4 +1,4 @@
-s<div class="home-wrapper">
+<div class="home-wrapper">
   <!-- Hero Section -->
   <header class="hero-section position-relative d-flex align-items-center justify-content-center text-center overflow-hidden">
     <div class="hero-glow"></div>
@@ -76,7 +76,7 @@ s<div class="home-wrapper">
 
       <!-- Grid of Featured Cards -->
       <div class="row g-4" *ngIf="!isLoading">
-        <div class="col-md-4" *ngFor="let article of featuredArticles">
+        <div class="col-12 col-md-6 col-lg-4" *ngFor="let article of featuredArticles">
           <app-card [article]="article"></app-card>
         </div>
       </div>
