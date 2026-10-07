@@ -16,10 +16,6 @@ NEWS_API_KEY=your_news_api_key_here
 NEWS_API_URL=https://newsapi.org/v2/
 ```
 
-### 2. How it Works
-When running scripts via `npm`, the script [`set-env.js`](file:///c:/Users/ASUS/Desktop/skyvo/Angular/newsproject/set-env.js) automatically extracts values from the `.env` file and generates:
-* `src/environments/environment.ts`
-* `src/environments/environment.development.ts`
 
 These generated files are ignored by git in [`.gitignore`](file:///c:/Users/ASUS/Desktop/skyvo/Angular/newsproject/.gitignore) to protect credentials.
 
